@@ -19,6 +19,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade robotframework-selenium2library
           pip list
+          cp /cumulusci /opt/robotframework/tests/
      
       - name: Checkout
         uses: actions/checkout@v2
