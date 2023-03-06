@@ -1,0 +1,31 @@
+name: robot_test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Run Robot Framework Tests
+    steps:
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade robotframework-selenium2library
+          pip list
+     
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
+        with:
+          browser: 'firefox'
+          robot_threads: 2 
+        
+         
