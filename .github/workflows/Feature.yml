@@ -1,4 +1,18 @@
- robot_tests:
+name: robot_test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+env:
+  CUMULUSCI_ROBOT_FRAMEWORK: cumulusci.robotframework.Salesforce.robot
+  CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
+jobs:
+   robot_tests:
     name: "Run Robot Framework Tests"
     runs-on: sfdc-ubuntu-latest
     steps:
@@ -20,6 +34,7 @@
           pip install cumulusci
       - name: Build Org and Execute Tests
         run: |
+          cci org list
           cci flow run qa_org --org qa
           cci task run robot --org qa -o vars BROWSER:headlesschrome
       - name: Store robot results
