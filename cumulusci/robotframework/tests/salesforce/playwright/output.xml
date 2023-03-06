@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.4 on win32)" generated="20230217 19:11:18.407" rpa="false" schemaversion="3">
+<suite id="s1" name="Open Test Browser" source="C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI\cumulusci\robotframework\tests\salesforce\playwright\open_test_browser.robot">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Get URLs for switching</arg>
+<arg>AND</arg>
+<arg>Open test browser</arg>
+<arg>wait=False</arg>
+<arg>AND</arg>
+<arg>switch to classic</arg>
+<arg>AND</arg>
+<arg>close browser</arg>
+<arg>ALL</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Get urls for switching">
+<kw name="Get org info">
+<var>${org info}</var>
+<msg timestamp="20230217 19:11:20.397" level="FAIL">No keyword with name 'Get org info' found.</msg>
+<status status="FAIL" starttime="20230217 19:11:20.397" endtime="20230217 19:11:20.397"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${switcher lex url}</arg>
+<arg>${org info['instance_url']}/ltng/switcher?destination=lex</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" starttime="20230217 19:11:20.399" endtime="20230217 19:11:20.399"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${switcher classic url}</arg>
+<arg>${org info['instance_url']}/ltng/switcher?destination=classic</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" starttime="20230217 19:11:20.399" endtime="20230217 19:11:20.399"/>
+</kw>
+<status status="FAIL" starttime="20230217 19:11:20.393" endtime="20230217 19:11:20.399"/>
+</kw>
+<status status="FAIL" starttime="20230217 19:11:20.392" endtime="20230217 19:11:20.400"/>
+</kw>
+<test id="s1-t1" name="Auto-switch to lightning" line="34">
+<doc>Verify that if we land on a classic page that we auto-switch to lightning</doc>
+<status status="FAIL" starttime="20230217 19:11:20.400" endtime="20230217 19:11:20.403">Parent suite setup failed:
+No keyword with name 'Get org info' found.</status>
+</test>
+<kw name="Close Browser" type="TEARDOWN">
+<arg>ALL</arg>
+<msg timestamp="20230217 19:11:20.414" level="FAIL">No keyword with name 'Close Browser' found.</msg>
+<status status="FAIL" starttime="20230217 19:11:20.414" endtime="20230217 19:11:20.415">No keyword with name 'Close Browser' found.</status>
+</kw>
+<doc>Tests for auto-detecting classic mode in a scratch org</doc>
+<status status="FAIL" starttime="20230217 19:11:18.410" endtime="20230217 19:11:20.415">Suite setup failed:
+No keyword with name 'Get org info' found.
+
+Also suite teardown failed:
+No keyword with name 'Close Browser' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Open Test Browser">Open Test Browser</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230217 19:11:18.441" level="ERROR">Error in file 'C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages\cumulusci\robotframework\SalesforcePlaywright.robot' on line 33: Importing library 'Browser' failed: ModuleNotFoundError: No module named 'Browser'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\Scripts\robot.exe
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310
+  C:\Users\pmurkya\AppData\Roaming\Python\Python310\site-packages
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages</msg>
+<msg timestamp="20230217 19:11:20.024" level="ERROR">Error in file 'C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages\cumulusci\robotframework\SalesforcePlaywright.robot' on line 37: Variable '${ORG}' not found.</msg>
+<msg timestamp="20230217 19:11:20.030" level="ERROR">Error in file 'C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages\cumulusci\robotframework\SalesforcePlaywright.robot' on line 38: Importing library 'cumulusci.robotframework.SalesforcePlaywright' failed: ModuleNotFoundError: No module named 'Browser'
+Traceback (most recent call last):
+  File "C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages\cumulusci\robotframework\SalesforcePlaywright.py", line 4, in &lt;module&gt;
+    from Browser import SupportedBrowsers
+PYTHONPATH:
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\Scripts\robot.exe
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310
+  C:\Users\pmurkya\AppData\Roaming\Python\Python310\site-packages</msg>
+</errors>
+</robot>

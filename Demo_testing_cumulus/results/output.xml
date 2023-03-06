@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.4 on win32)" generated="20230224 20:07:43.343" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Case" source="C:\Users\pmurkya\robot\Demo_testing_cumulus\tests\Test_Case.robot">
+<kw name="Open Test Browser" library="Salesforce" type="SETUP">
+<doc>Opens a test browser to the org.</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${login_url}</var>
+<arg>$useralias</arg>
+<arg>Login URL</arg>
+<arg>alias=${useralias}</arg>
+<arg>ELSE</arg>
+<arg>Login URL</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Login Url" library="cumulusci.robotframework.CumulusCI">
+<doc>Returns the login url which will automatically log into the target
+Salesforce org.  By default, the org_name passed to the library
+constructor is used but this can be overridden with the org option
+to log into a different org.</doc>
+<status status="PASS" starttime="20230224 20:07:43.997" endtime="20230224 20:07:43.997"/>
+</kw>
+<msg timestamp="20230224 20:07:43.997" level="INFO">${login_url} = https://sem-ag-devhub--qafull.sandbox.my.salesforce.com/secur/frontdoor.jsp?sid=00D7a00000053OO!ARMAQN5Ujbx7VmdO5MTYmPmMtUpVZpJFOXlIkeGTMaHGOHbjxsHKNfBVnFThLIJLGE7zAHOqefFnRPdy611a7Ql3hxpAiu.s</msg>
+<status status="PASS" starttime="20230224 20:07:43.989" endtime="20230224 20:07:43.997"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${BROWSER}' == 'chrome'</arg>
+<arg>Open Test Browser Chrome</arg>
+<arg>${login_url}</arg>
+<arg>alias=${alias}</arg>
+<arg>ELSE IF</arg>
+<arg>'${BROWSER}' == 'firefox'</arg>
+<arg>Open Test Browser Firefox</arg>
+<arg>${login_url}</arg>
+<arg>alias=${alias}</arg>
+<arg>ELSE IF</arg>
+<arg>'${BROWSER}' == 'headlesschrome'</arg>
+<arg>Open Test Browser Chrome</arg>
+<arg>${login_url}</arg>
+<arg>alias=${alias}</arg>
+<arg>ELSE IF</arg>
+<arg>'${BROWSER}' == 'headlessfirefox'</arg>
+<arg>Open Test Browser Headless Firefox</arg>
+<arg>${login_url}</arg>
+<arg>alias=${alias}</arg>
+<arg>ELSE</arg>
+<arg>Open Browser</arg>
+<arg>${login_url}</arg>
+<arg>${BROWSER}</arg>
+<arg>alias=${alias}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Test Browser Chrome" library="Salesforce">
+<arg>${login_url}</arg>
+<arg>alias=${alias}</arg>
+<doc>Opens a Chrome browser window and navigates to the org
+This keyword isn't normally called directly by a test. It is used
+by the `Open Test Browser` keyword.</doc>
+<kw name="Get Chrome Options" library="Salesforce">
+<var>${options}</var>
+<doc>Returns a dictionary of chrome options, for use by the keyword `Open Test Browser`.</doc>
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230224 20:07:44.005" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000025468CDD1B0&gt;</msg>
+<status status="PASS" starttime="20230224 20:07:43.997" endtime="20230224 20:07:44.005"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${BROWSER}' == 'headlesschrome'</arg>
+<arg>Chrome Set Headless</arg>
+<arg>${options}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230224 20:07:44.005" endtime="20230224 20:07:44.005"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${CHROME_BINARY}' != '${empty}'</arg>
+<arg>Chrome Set Binary</arg>
+<arg>${options}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230224 20:07:44.005" endtime="20230224 20:07:44.005"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230224 20:07:44.005" endtime="20230224 20:07:44.005"/>
+</kw>
+<msg timestamp="20230224 20:07:44.005" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000025468CDD1B0&gt;</msg>
+<status status="PASS" starttime="20230224 20:07:43.997" endtime="20230224 20:07:44.005"/>
+</kw>
+<kw name="Create Webdriver With Retry" library="cumulusci.robotframework.Salesforce">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<arg>alias=${alias}</arg>
+<doc>Call the Create Webdriver keyword.</doc>
+<msg timestamp="20230224 20:07:44.005" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230224 20:07:44.005" endtime="20230224 20:07:46.525"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230224 20:07:46.525" endtime="20230224 20:07:46.525"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20230224 20:07:46.532" endtime="20230224 20:07:46.537"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${login_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230224 20:07:46.539" level="INFO">Opening url 'https://sem-ag-devhub--qafull.sandbox.my.salesforce.com/secur/frontdoor.jsp?sid=00D7a00000053OO!ARMAQN5Ujbx7VmdO5MTYmPmMtUpVZpJFOXlIkeGTMaHGOHbjxsHKNfBVnFThLIJLGE7zAHOqefFnRPdy611a7Ql3hxpAiu.s'</msg>
+<status status="PASS" starttime="20230224 20:07:46.538" endtime="20230224 20:08:04.220"/>
+</kw>
+<status status="PASS" starttime="20230224 20:07:43.997" endtime="20230224 20:08:04.221"/>
+</kw>
+<status status="PASS" starttime="20230224 20:07:43.997" endtime="20230224 20:08:04.221"/>
+</kw>
+<kw name="Convert To Boolean" library="BuiltIn">
+<var>${should_wait}</var>
+<arg>${wait}</arg>
+<doc>Converts the given item to Boolean true or false.</doc>
+<msg timestamp="20230224 20:08:04.222" level="INFO">${should_wait} = True</msg>
+<status status="PASS" starttime="20230224 20:08:04.222" endtime="20230224 20:08:04.222"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>$should_wait</arg>
+<arg>Wait Until Salesforce Is Ready</arg>
+<arg>timeout=180</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Wait Until Salesforce Is Ready" library="cumulusci.robotframework.Salesforce">
+<arg>timeout=180</arg>
+<doc>Waits until we are able to render the initial salesforce landing page</doc>
+<status status="PASS" starttime="20230224 20:08:04.224" endtime="20230224 20:08:04.373"/>
+</kw>
+<status status="PASS" starttime="20230224 20:08:04.222" endtime="20230224 20:08:04.373"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20230224 20:08:04.373" endtime="20230224 20:08:04.373"/>
+</kw>
+<kw name="Initialize Location Strategies" library="cumulusci.robotframework.Salesforce">
+<doc>Initialize the Salesforce custom location strategies</doc>
+<msg timestamp="20230224 20:08:04.396" level="INFO">${LOCATION STRATEGIES INITIALIZED} = True</msg>
+<status status="PASS" starttime="20230224 20:08:04.373" endtime="20230224 20:08:04.396"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${width}</var>
+<var>${height}</var>
+<arg>${size}</arg>
+<arg>separator=x</arg>
+<arg>max_split=1</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230224 20:08:04.396" level="INFO">${width} = 1280</msg>
+<msg timestamp="20230224 20:08:04.396" level="INFO">${height} = 1024</msg>
+<status status="PASS" starttime="20230224 20:08:04.396" endtime="20230224 20:08:04.396"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${width}</arg>
+<arg>${height}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230224 20:08:04.396" endtime="20230224 20:08:04.525"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${SELENIUM_SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20230224 20:08:04.525" endtime="20230224 20:08:04.525"/>
+</kw>
+<kw name="Log Browser Capabilities" library="cumulusci.robotframework.Salesforce">
+<doc>Logs all of the browser capabilities as reported by selenium</doc>
+<msg timestamp="20230224 20:08:04.535" level="INFO">selenium browser capabilities:
+{   'acceptInsecureCerts': False,
+    'browserName': 'chrome',
+    'browserVersion': '110.0.5481.105',
+    'chrome': {   'chromedriverVersion': '110.0.5481.77 '
+                                         '(65ed616c6e8ee3fe0ad64fe83796c020644d42af-refs/branch-heads/5481@{#839})',
+                  'userDataDir': 'C:\\Users\\pmurkya\\AppData\\Local\\Temp\\scoped_dir1716_690897688'},
+    'goog:chromeOptions': {'debuggerAddress': 'localhost:62020'},
+    'networkConnectionEnabled': False,
+    'pageLoadStrategy': 'normal',
+    'platformName': 'windows',
+    'proxy': {},
+    'setWindowRect': True,
+    'strictFileInteractability': False,
+    'timeouts': {'implicit': 0, 'pageLoad': 300000, 'script': 30000},
+    'unhandledPromptBehavior': 'dismiss and notify',
+    'webauthn:extension:credBlob': True,
+    'webauthn:extension:largeBlob': True,
+    'webauthn:virtualAuthenticators': True}</msg>
+<status status="PASS" starttime="20230224 20:08:04.525" endtime="20230224 20:08:04.536"/>
+</kw>
+<status status="PASS" starttime="20230224 20:07:43.989" endtime="20230224 20:08:04.536"/>
+</kw>
+<test id="s1-t1" name="OpenCase" line="22">
+<kw name="Get Fake Data" library="cumulusci.robotframework.Salesforce">
+<var>${first_name}</var>
+<arg>first_name</arg>
+<doc>Return fake data</doc>
+<msg timestamp="20230224 20:08:04.542" level="INFO">${first_name} = Angela</msg>
+<status status="PASS" starttime="20230224 20:08:04.539" endtime="20230224 20:08:04.542"/>
+</kw>
+<kw name="Get Fake Data" library="cumulusci.robotframework.Salesforce">
+<var>${last_name}</var>
+<arg>last_name</arg>
+<doc>Return fake data</doc>
+<msg timestamp="20230224 20:08:04.542" level="INFO">${last_name} = Grimes</msg>
+<status status="PASS" starttime="20230224 20:08:04.542" endtime="20230224 20:08:04.542"/>
+</kw>
+<kw name="Select App Launcher App" library="cumulusci.robotframework.Salesforce">
+<arg>Rocky Lead Management</arg>
+<doc>Navigates to a Salesforce App via the App Launcher</doc>
+<msg timestamp="20230224 20:08:04.545" level="INFO">locator: 'sf:app_launcher.button' =&gt; '//div[contains(@class,'appLauncher')]//button[//div[contains(@class,'slds-icon-waffle')]]'</msg>
+<msg timestamp="20230224 20:08:04.570" level="INFO">locator: 'sf:app_launcher.button' =&gt; '//div[contains(@class,'appLauncher')]//button[//div[contains(@class,'slds-icon-waffle')]]'</msg>
+<msg timestamp="20230224 20:08:04.629" level="INFO">locator: 'sf:app_launcher.button' =&gt; '//div[contains(@class,'appLauncher')]//button[//div[contains(@class,'slds-icon-waffle')]]'</msg>
+<msg timestamp="20230224 20:08:04.661" level="INFO">locator: 'sf:app_launcher.view_all' =&gt; '//div[contains(@class, 'appLauncherMenu')]//button[text()='View All']'</msg>
+<msg timestamp="20230224 20:08:07.687" level="INFO">locator: 'sf:app_launcher.view_all' =&gt; '//div[contains(@class, 'appLauncherMenu')]//button[text()='View All']'</msg>
+<msg timestamp="20230224 20:08:07.696" level="INFO">locator: 'sf:app_launcher.view_all' =&gt; '//div[contains(@class, 'appLauncherMenu')]//button[text()='View All']'</msg>
+<msg timestamp="20230224 20:08:07.792" level="INFO">locator: 'sf:app_launcher.view_all' =&gt; '//div[contains(@class, 'appLauncherMenu')]//button[text()='View All']'</msg>
+<msg timestamp="20230224 20:08:09.576" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230224 20:08:09.576" level="FAIL">AttributeError: 'WebElement' object has no attribute 'find_element_by_xpath'</msg>
+<status status="FAIL" starttime="20230224 20:08:04.542" endtime="20230224 20:08:09.579"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>20</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230224 20:08:09.581" endtime="20230224 20:08:09.581"/>
+</kw>
+<kw name="Go To Page" library="cumulusci.robotframework.PageObjects">
+<arg>Home</arg>
+<arg>Lead</arg>
+<doc>Go to the page of the given page object.</doc>
+<status status="NOT RUN" starttime="20230224 20:08:09.582" endtime="20230224 20:08:09.582"/>
+</kw>
+<kw name="Click Object Button" library="cumulusci.robotframework.Salesforce">
+<arg>New</arg>
+<doc>Clicks a button in an object's actions.</doc>
+<status status="NOT RUN" starttime="20230224 20:08:09.583" endtime="20230224 20:08:09.583"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<status status="NOT RUN" starttime="20230224 20:08:09.584" endtime="20230224 20:08:09.584"/>
+</kw>
+<status status="FAIL" starttime="20230224 20:08:04.536" endtime="20230224 20:08:09.585">AttributeError: 'WebElement' object has no attribute 'find_element_by_xpath'</status>
+</test>
+<status status="FAIL" starttime="20230224 20:07:43.343" endtime="20230224 20:08:09.589"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Case">Test Case</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230224 20:07:43.912" level="ERROR">Error in file 'C:\Users\pmurkya\robot\Demo_testing_cumulus\tests\Test_Case.robot' on line 8: Importing library 'RequestLibrary' failed: ModuleNotFoundError: No module named 'RequestLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\Scripts\cci.exe
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310
+  C:\Users\pmurkya\AppData\Roaming\Python\Python310\site-packages
+  C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI
+  C:\Users\pmurkya</msg>
+<msg timestamp="20230224 20:07:43.931" level="ERROR">Error in file 'C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI\cumulusci\robotframework\SalesforcePlaywright.robot' on line 33: Importing library 'Browser' failed: ModuleNotFoundError: No module named 'Browser'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\Scripts\cci.exe
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310
+  C:\Users\pmurkya\AppData\Roaming\Python\Python310\site-packages
+  C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI
+  C:\Users\pmurkya</msg>
+<msg timestamp="20230224 20:07:43.965" level="ERROR">Error in file 'C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI\cumulusci\robotframework\SalesforcePlaywright.robot' on line 38: Importing library 'cumulusci.robotframework.SalesforcePlaywright' failed: ModuleNotFoundError: No module named 'Browser'
+Traceback (most recent call last):
+  File "C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI\cumulusci\robotframework\SalesforcePlaywright.py", line 4, in &lt;module&gt;
+    from Browser import SupportedBrowsers
+PYTHONPATH:
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib\site-packages
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\Scripts\cci.exe
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\pmurkya\AppData\Local\Programs\Python\Python310
+  C:\Users\pmurkya\AppData\Roaming\Python\Python310\site-packages
+  C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI
+  C:\Users\pmurkya</msg>
+</errors>
+</robot>

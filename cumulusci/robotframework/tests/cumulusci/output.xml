@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.4 on win32)" generated="20230217 19:07:45.481" rpa="false" schemaversion="3">
+<suite id="s1" name="Base" source="C:\Users\pmurkya\Projects\NEW_PROJECT_BY_MANINDER\CumulusCI\cumulusci\robotframework\tests\cumulusci\base.robot">
+<test id="s1-t1" name="Test Set Login Url" line="8">
+<kw name="Set Login Url" library="cumulusci.robotframework.CumulusCI">
+<doc>Sets the LOGIN_URL variable in the suite scope which will
+automatically log into the target Salesforce org.</doc>
+<msg timestamp="20230217 19:07:48.450" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'orgs/dev.json'</msg>
+<status status="FAIL" starttime="20230217 19:07:47.820" endtime="20230217 19:07:48.454"/>
+</kw>
+<kw name="Variable Should Exist" library="BuiltIn">
+<arg>${LOGIN_URL}</arg>
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<status status="NOT RUN" starttime="20230217 19:07:48.455" endtime="20230217 19:07:48.455"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:47.820" endtime="20230217 19:07:48.456">FileNotFoundError: [Errno 2] No such file or directory: 'orgs/dev.json'</status>
+</test>
+<test id="s1-t2" name="Test Login Url" line="12">
+<kw name="Login Url" library="cumulusci.robotframework.CumulusCI">
+<var>${login_url}</var>
+<doc>Returns the login url which will automatically log into the target
+Salesforce org.  By default, the org_name passed to the library
+constructor is used but this can be overridden with the org option
+to log into a different org.</doc>
+<msg timestamp="20230217 19:07:48.460" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'orgs/dev.json'</msg>
+<status status="FAIL" starttime="20230217 19:07:48.459" endtime="20230217 19:07:48.461"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${login_url}</arg>
+<arg>secur/frontdoor.jsp?sid=</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" starttime="20230217 19:07:48.462" endtime="20230217 19:07:48.462"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.458" endtime="20230217 19:07:48.463">FileNotFoundError: [Errno 2] No such file or directory: 'orgs/dev.json'</status>
+</test>
+<test id="s1-t3" name="Test Get Org Info" line="16">
+<kw name="Get Org Info" library="cumulusci.robotframework.CumulusCI">
+<var>&amp;{org_info}</var>
+<doc>Returns a dictionary of the org information for the current target
+Salesforce org</doc>
+<msg timestamp="20230217 19:07:48.468" level="INFO">&amp;{org_info} = { config_file=orgs/dev.json | days=7 | set_password=True | scratch=True | namespaced=False | config_name=dev | sfdx_alias=CumulusCI__dev | serialization_format=pickle | scratch_org_type=workspace }</msg>
+<status status="PASS" starttime="20230217 19:07:48.467" endtime="20230217 19:07:48.468"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${org_info}</arg>
+<arg>org_id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<msg timestamp="20230217 19:07:48.471" level="FAIL">Dictionary does not contain key 'org_id'.</msg>
+<status status="FAIL" starttime="20230217 19:07:48.469" endtime="20230217 19:07:48.471"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${org_info}</arg>
+<arg>username</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" starttime="20230217 19:07:48.473" endtime="20230217 19:07:48.473"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.466" endtime="20230217 19:07:48.474">Dictionary does not contain key 'org_id'.</status>
+</test>
+<test id="s1-t4" name="Test Get Namespace Prefix" line="21">
+<kw name="Get Namespace Prefix" library="cumulusci.robotframework.CumulusCI">
+<var>${ns}</var>
+<doc>Returns the namespace prefix (including __) for the specified package name.
+(Defaults to project__package__name_managed from the current project config.)</doc>
+<msg timestamp="20230217 19:07:48.479" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'orgs/dev.json'</msg>
+<status status="FAIL" starttime="20230217 19:07:48.478" endtime="20230217 19:07:48.480"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${ns}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="NOT RUN" starttime="20230217 19:07:48.482" endtime="20230217 19:07:48.482"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.477" endtime="20230217 19:07:48.482">FileNotFoundError: [Errno 2] No such file or directory: 'orgs/dev.json'</status>
+</test>
+<test id="s1-t5" name="Test Run Task" line="25">
+<kw name="Run Task" library="cumulusci.robotframework.CumulusCI">
+<arg>create_package</arg>
+<doc>Runs a named CumulusCI task for the current project with optional
+support for overriding task options via kwargs.</doc>
+<msg timestamp="20230217 19:07:48.624" level="FAIL">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</msg>
+<status status="FAIL" starttime="20230217 19:07:48.488" endtime="20230217 19:07:48.630"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.486" endtime="20230217 19:07:48.632">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</status>
+</test>
+<test id="s1-t6" name="Test Run Task With Options" line="28">
+<kw name="Run Task" library="cumulusci.robotframework.CumulusCI">
+<arg>create_package</arg>
+<arg>package=Test Package</arg>
+<doc>Runs a named CumulusCI task for the current project with optional
+support for overriding task options via kwargs.</doc>
+<msg timestamp="20230217 19:07:48.697" level="FAIL">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</msg>
+<status status="FAIL" starttime="20230217 19:07:48.635" endtime="20230217 19:07:48.699"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.634" endtime="20230217 19:07:48.700">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</status>
+</test>
+<test id="s1-t7" name="Test Run Task Missing" line="31">
+<kw name="Run Keyword And Expect Error" library="BuiltIn">
+<arg>TaskNotFoundError: Task not found: does_not_exist</arg>
+<arg>Run Task</arg>
+<arg>does_not_exist</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<kw name="Run Task" library="cumulusci.robotframework.CumulusCI">
+<arg>does_not_exist</arg>
+<doc>Runs a named CumulusCI task for the current project with optional
+support for overriding task options via kwargs.</doc>
+<msg timestamp="20230217 19:07:48.705" level="FAIL">TaskNotFoundError: Task not found: does_not_exist</msg>
+<status status="FAIL" starttime="20230217 19:07:48.703" endtime="20230217 19:07:48.709"/>
+</kw>
+<status status="PASS" starttime="20230217 19:07:48.703" endtime="20230217 19:07:48.710"/>
+</kw>
+<tag>no-browser</tag>
+<status status="PASS" starttime="20230217 19:07:48.702" endtime="20230217 19:07:48.713"/>
+</test>
+<test id="s1-t8" name="Test Run Task Class" line="36">
+<kw name="Run Task Class" library="cumulusci.robotframework.CumulusCI">
+<arg>cumulusci.tasks.salesforce.CreatePackage</arg>
+<doc>Runs a CumulusCI task class with task options via kwargs.</doc>
+<msg timestamp="20230217 19:07:48.767" level="FAIL">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</msg>
+<status status="FAIL" starttime="20230217 19:07:48.717" endtime="20230217 19:07:48.768"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.716" endtime="20230217 19:07:48.769">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</status>
+</test>
+<test id="s1-t9" name="Test Run Task Class With Options" line="39">
+<kw name="Run Task Class" library="cumulusci.robotframework.CumulusCI">
+<arg>cumulusci.tasks.salesforce.CreatePackage</arg>
+<arg>package=Test Package</arg>
+<doc>Runs a CumulusCI task class with task options via kwargs.</doc>
+<msg timestamp="20230217 19:07:48.821" level="FAIL">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</msg>
+<status status="FAIL" starttime="20230217 19:07:48.772" endtime="20230217 19:07:48.823"/>
+</kw>
+<tag>no-browser</tag>
+<status status="FAIL" starttime="20230217 19:07:48.771" endtime="20230217 19:07:48.823">AttributeError: module 'lib' has no attribute 'OpenSSL_add_all_algorithms'</status>
+</test>
+<status status="FAIL" starttime="20230217 19:07:45.486" endtime="20230217 19:07:48.827"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="8" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="8" skip="0">no-browser</stat>
+</tag>
+<suite>
+<stat pass="1" fail="8" skip="0" id="s1" name="Base">Base</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

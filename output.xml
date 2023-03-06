@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230227 10:08:20.837" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Case" source="c:\Users\pmurkya\robot\Demo_testing_cumulus\tests\Test_Case.robot">
+<kw name="Open Test Browser" type="SETUP">
+<msg timestamp="20230227 10:08:20.942" level="FAIL">No keyword with name 'Open Test Browser' found.</msg>
+<status status="FAIL" starttime="20230227 10:08:20.941" endtime="20230227 10:08:20.943"/>
+</kw>
+<test id="s1-t1" name="OpenCase" line="19">
+<status status="FAIL" starttime="20230227 10:08:20.944" endtime="20230227 10:08:20.945">Parent suite setup failed:
+No keyword with name 'Open Test Browser' found.</status>
+</test>
+<status status="FAIL" starttime="20230227 10:08:20.846" endtime="20230227 10:08:20.947">Suite setup failed:
+No keyword with name 'Open Test Browser' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Case">Test Case</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230227 10:08:20.871" level="ERROR">Error in file 'c:\Users\pmurkya\robot\Demo_testing_cumulus\tests\Test_Case.robot' on line 4: Resource file 'cumulusci\robotframework\Salesforce.robot' does not exist.</msg>
+<msg timestamp="20230227 10:08:20.877" level="ERROR">Error in file 'c:\Users\pmurkya\robot\Demo_testing_cumulus\tests\Test_Case.robot' on line 5: Importing library 'cumulusci.robotframework.PageObjects' failed: ModuleNotFoundError: No module named 'cumulusci'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\Users\pmurkya\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src\robotframework_debug_adapter
+  C:\Users\pmurkya\robot
+  c:\Users\pmurkya\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src
+  c:\Users\pmurkya\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src\robotframework_ls\vendored
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\python39.zip
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\DLLs
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\lib
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9
+  c:\ProgramData\robocorp\ht
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\lib\site-packages
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\lib\site-packages\win32
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\lib\site-packages\win32\lib
+  c:\ProgramData\robocorp\ht\69b8961_b1f3c24_994435c9\lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>
