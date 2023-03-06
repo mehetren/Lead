@@ -22,8 +22,9 @@ jobs:
           mkdir sfdx
           wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ -C sfdx --strip-components 1
           ./sfdx/install
-          echo ${{ secrets.SFDX_AUTH_URL }} > sfdx_auth
-          sfdx force:auth:sfdxurl:store -f sfdx_auth -d
+          sfdx force:auth:web:login --setalias DevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
+          #echo ${{ secrets.SFDX_AUTH_URL }} > sfdx_auth
+          #sfdx force:auth:sfdxurl:store -f sfdx_auth -d
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
@@ -35,8 +36,8 @@ jobs:
       - name: Build Org and Execute Tests
         run: |
           cci org list
-          cci flow run qa_org --org qa
-          cci task run robot --org qa -o vars BROWSER:headlesschrome
+          cci flow run dev_org --org dev
+          cci task run robot --org dev -o vars BROWSER:headlesschrome
       - name: Store robot results
         uses: actions/upload-artifact@v1
         with:
@@ -45,4 +46,4 @@ jobs:
       - name: Delete Scratch Org
         if: ${{ always() }}
         run: |
-          cci org scratch_delete qa
+          cci org scratch_delete dev_org
