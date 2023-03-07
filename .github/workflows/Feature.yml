@@ -26,10 +26,18 @@ jobs:
         - name: 'Checkout source code'
           uses: actions/checkout@v2
 
-#         # Create Comment with Scratch Org URL
-#         - name: Add Comment with Scratch Org URL
-#           id: login
-# #           uses: dyno-dev/sfdx-scratch-org-login-url-action
+#         # Create scratch org
+        - name: list available ORGs
+            run:|
+              brew install pipx
+              pipx ensurepath
+              pipx install cumulusci
+              cci --version
+              cci org list
+              cci org info dev
+              cci org scratch dev myDevOrg
+              
+              
 
 #         # Add Comment with Scratch Org URL
 #         - uses: marocchino/sticky-pull-request-comment@v2
