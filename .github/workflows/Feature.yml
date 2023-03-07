@@ -25,6 +25,10 @@ jobs:
         # Checkout the code in the pull request
         - name: 'Checkout source code'
           uses: actions/checkout@v2
+              pwd
+              ls -a
+              mkdir pipx
+              cd pix
 
         - name: Install CUMULUSCI with PIPX
           run: |
