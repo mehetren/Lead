@@ -32,6 +32,7 @@ jobs:
         - name: Install cumulusci
           run: |
               pipx install cumulusci
+              
             
               
         # Create scratch org
@@ -40,9 +41,8 @@ jobs:
           run: |
               cci --version
               cci org list
+              cci org default dev
               cci org info dev
-              cci org scratch dev myDevOrg
-              
               
 
 #         # Add Comment with Scratch Org URL
