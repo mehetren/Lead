@@ -41,8 +41,7 @@ jobs:
           run: |
               cci --version
               cci org list
-              cci org default dev
-              cci org info dev
+              
               
 
 #         # Add Comment with Scratch Org URL
