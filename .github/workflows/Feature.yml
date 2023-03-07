@@ -26,13 +26,13 @@ jobs:
         - name: 'Checkout source code'
           uses: actions/checkout@v2
               
-        - name: Install CUMULUSCI with PIPX
+        - name: Install pipx
           run: |
-              pwd
-              ls -a
-              mkdir pipx
-              cd pix
-              python pipx install cumulusci
+              pip install pipx
+        - name: Install cumulusci
+          run: |
+              pipx install cumulusci
+            
               
         # Create scratch org
 
