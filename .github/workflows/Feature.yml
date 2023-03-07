@@ -27,7 +27,7 @@ jobs:
           uses: actions/checkout@v2
 
         - name: Install PIPX
-            run:|
+          run: |
               python pip install pipx
               python pipx ensurepath
               python install cumulusci
@@ -35,7 +35,7 @@ jobs:
         # Create scratch org
 
         - name: list available ORGs
-            run:|
+          run: |
               pip install pipx
               pipx ensurepath
               pipx install cumulusci
