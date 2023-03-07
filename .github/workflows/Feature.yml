@@ -12,38 +12,31 @@ env:
   CUMULUSCI_ROBOT_FRAMEWORK: cumulusci.robotframework.Salesforce.robot
   CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
 jobs:
-   robot_tests:
-    name: "Run Robot Framework Tests"
+  test:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Install sfdx
-        run: |
-          mkdir sfdx
-          wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ -C sfdx --strip-components 1
-          ./sfdx/install
-          sfdx force:auth:web:login --setalias DevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
-          #echo ${{ secrets.SFDX_AUTH_URL }} > sfdx_auth
-          #sfdx force:auth:sfdxurl:store -f sfdx_auth -d
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: "3.8"
-      - name: Install CumulusCI
-        run: |
-          python -m pip install -U pip
-          pip install cumulusci
-      - name: Build Org and Execute Tests
-        run: |
-          cci org list
-          cci flow run dev_org --org dev
-          cci task run robot --org dev -o vars BROWSER:headlesschrome
-      - name: Store robot results
-        uses: actions/upload-artifact@v1
-        with:
-          name: robot
-          path: robot/cci-ci-demo/results
-      - name: Delete Scratch Org
-        if: ${{ always() }}
-        run: |
-          cci org scratch_delete dev_org
+        # Install Salesforce CLI
+        - name: Install Salesforce CLI
+          run: |
+            wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+            mkdir sfdx-cli
+            tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+            ./sfdx-cli/install
+
+        # Checkout the code in the pull request
+        - name: 'Checkout source code'
+          uses: actions/checkout@v2
+
+#         # Create Comment with Scratch Org URL
+#         - name: Add Comment with Scratch Org URL
+#           id: login
+# #           uses: dyno-dev/sfdx-scratch-org-login-url-action
+
+#         # Add Comment with Scratch Org URL
+#         - uses: marocchino/sticky-pull-request-comment@v2
+#           with:
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#             message: |
+#               Review package - [Scratch Org](${{steps.login.outputs.login-url}})
