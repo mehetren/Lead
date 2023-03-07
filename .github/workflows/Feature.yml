@@ -28,9 +28,7 @@ jobs:
 
         - name: Install PIPX
           run: |
-              python pip install pipx
-              python pipx ensurepath
-              python install cumulusci
+              python pip install cumulusci
               
         # Create scratch org
 
