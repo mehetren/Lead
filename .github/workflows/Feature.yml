@@ -26,7 +26,14 @@ jobs:
         - name: 'Checkout source code'
           uses: actions/checkout@v2
 
-#         # Create scratch org
+        - name: Install PIPX
+            run:|
+              python pip install pipx
+              python pipx ensurepath
+              python install cumulusci
+              
+        # Create scratch org
+
         - name: list available ORGs
             run:|
               pip install pipx
