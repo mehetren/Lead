@@ -29,7 +29,7 @@ jobs:
 #         # Create scratch org
         - name: list available ORGs
             run:|
-              brew install pipx
+              pip install pipx
               pipx ensurepath
               pipx install cumulusci
               cci --version
