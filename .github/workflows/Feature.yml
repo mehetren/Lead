@@ -11,9 +11,6 @@ permissions:
   
 jobs:
   test:
-    env:
-      PATH_salesforce: ${{env.PATH}}:/cumulusci/robotframework/salesforce.robot
-      PATH1_cumulusci: ${{env.PATH}}:/cumulusci
     runs-on: ubuntu-latest
 
     steps:
@@ -44,8 +41,22 @@ jobs:
           run: |
               cci --version
               cci org list
-              echo "$PATH_salesforce"
               cci org scratch dev MyDevOrg
+              
+        - name: Build Org and Execute Tests
+          run: |
+            cci flow run MyDevOrg --org dev
+            cci task run robot --org dev -o vars BROWSER:headlesschrome
+            
+        - name: Store robot test results
+          uses: actions/upload-artifact@v1
+          with:
+           name: robot test reports
+           path: robot_test/results
+        #- name: Delete Scratch Org
+         # if: ${{ always() }}
+         # run: |
+          # cci org scratch_delete dev
               
               
 
