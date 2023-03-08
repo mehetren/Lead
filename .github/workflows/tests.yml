@@ -81,7 +81,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Output Report
-          path: /home/runner/work/robot_test/results/
+          path: /home/runner/work/Lead/Lead/robot_test/results/
 
           
      
