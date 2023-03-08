@@ -41,6 +41,7 @@ jobs:
           run: |
               cci --version
               cci org list
+              cci org scratch dev MyDevOrg
               
               
 
