@@ -11,10 +11,7 @@ permissions:
   
 jobs:
   test:
-    env:
-      PATH_salesforce: ${{env.PATH}}:/cumulusci/robotframework/salesforce.robot
-      PATH1_cumulusci: ${{env.PATH}}:/cumulusci
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
 
     steps:
         # Install Salesforce CLI
