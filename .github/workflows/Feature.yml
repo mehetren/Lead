@@ -32,11 +32,9 @@ jobs:
         - name: Install cumulusci
           run: |
               pipx install cumulusci
-          
-        - name: list orgs
-          run: |
               cci org list
-#              sfdx force:auth:web:login --setalias myDevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
+              sfdx force:auth:web:login --setalias myDevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
+#              
               
 #         # Create scratch org
                                
