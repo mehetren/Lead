@@ -44,6 +44,7 @@ jobs:
           run: |
               cci --version
               cci org list
+              echo "$PATH_salesforce"
               cci org scratch dev MyDevOrg
               
               
