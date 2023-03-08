@@ -33,15 +33,8 @@ jobs:
           run: |
               pipx install cumulusci
               
-            
-              
         # Create scratch org
-
-        - name: list available ORGs
-          run: |
-              cci --version
-              cci org list
-                           
+                               
         - name: Build Org and Execute Tests
           run: |
             cci flow run MyDevOrg --org dev
