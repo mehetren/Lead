@@ -32,29 +32,34 @@ jobs:
         - name: Install cumulusci
           run: |
               pipx install cumulusci
-              
-        # Create scratch org
-                               
-        - name: Build Org and Execute Tests
+          
+        - name: list orgs
           run: |
-            cci flow run MyDevOrg --org dev
-            cci task run robot --org dev -o vars BROWSER:headlesschrome
+              cci org list
+              sfdx force:auth:web:login --setalias myDevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
+              
+#         # Create scratch org
+                               
+#         - name: Build Org and Execute Tests
+#           run: |
+#             cci flow run MyDevOrg --org dev
+#             cci task run robot --org dev -o vars BROWSER:headlesschrome
             
-        - name: Store robot test results
-          uses: actions/upload-artifact@v1
-          with:
-           name: robot test reports
-           path: robot_test/results
-        #- name: Delete Scratch Org
-         # if: ${{ always() }}
-         # run: |
-          # cci org scratch_delete dev
+#         - name: Store robot test results
+#           uses: actions/upload-artifact@v1
+#           with:
+#            name: robot test reports
+#            path: robot_test/results
+#         #- name: Delete Scratch Org
+#          # if: ${{ always() }}
+#          # run: |
+#           # cci org scratch_delete dev
               
               
 
-#         # Add Comment with Scratch Org URL
-#         - uses: marocchino/sticky-pull-request-comment@v2
-#           with:
-#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#             message: |
-#               Review package - [Scratch Org](${{steps.login.outputs.login-url}})
+# #         # Add Comment with Scratch Org URL
+# #         - uses: marocchino/sticky-pull-request-comment@v2
+# #           with:
+# #             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# #             message: |
+# #               Review package - [Scratch Org](${{steps.login.outputs.login-url}})
