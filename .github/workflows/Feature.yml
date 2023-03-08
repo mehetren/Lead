@@ -8,12 +8,9 @@ on:
 
 permissions:
   contents: read
-  
 jobs:
   test:
-    env:
-      PATH_salesforce: ${{env.PATH}}:/cumulusci/robotframework/salesforce.robot
-      PATH1_cumulusci: ${{env.PATH}}:/cumulusci
+
     runs-on: ubuntu-latest
 
     steps:
@@ -29,14 +26,13 @@ jobs:
         - name: 'Checkout source code'
           uses: actions/checkout@v2
               
-        - name: Install pipx
+        - name: Install CUMULUSCI with PIPX
           run: |
-              pip install pipx
-        - name: Install cumulusci
-          run: |
-              pipx install cumulusci
-              
-            
+              pwd
+              ls -a
+              mkdir pipx
+              cd pix
+              python pipx install cumulusci
               
         # Create scratch org
 
@@ -44,7 +40,8 @@ jobs:
           run: |
               cci --version
               cci org list
-              cci org scratch dev MyDevOrg
+              cci org info dev
+              cci org scratch dev myDevOrg
               
               
 
