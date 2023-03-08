@@ -32,7 +32,6 @@ jobs:
         - name: Install cumulusci
           run: |
               pipx install cumulusci
-              cci org list
               sfdx force:auth:web:login --setalias myDevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
 #              
               
