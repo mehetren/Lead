@@ -35,7 +35,7 @@ jobs:
           
         - name: list orgs
           run: |
-              python cci org list
+              cci org list
 #              sfdx force:auth:web:login --setalias myDevOrg --instanceurl https://sem-ag-devhub--qafull.sandbox.salesforce.com
               
 #         # Create scratch org
